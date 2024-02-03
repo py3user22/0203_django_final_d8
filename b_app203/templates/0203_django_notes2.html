@@ -7,12 +7,91 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         p {padding: 5px; border: 2px green dashed;}
+        .sup {color: purple;} .def {color: orange;}
     </style>
     <title>0203_django_mysql_connect_demo.html</title>
 </head>
 <body>
     <h2>0203_django_notes2</h2>
     <p>
-        ___#
+        ___# setting up the lab3 booking html demo <br>----------------------forms.py <br>
+        <sup><a href="sup" class="sup">
+            from .models import Booking <br>from django import forms <br>
+        </a></sup>
+        <br>
+        <a href="clas" class="clas">class</a> BookingForm(forms.ModelForm): <br>
+        | .. <a href="clas" class="clas">class</a> Meta: <br>
+        | ...... model = Booking <br>
+        | ...... fields = "__all__" <br>
+        <br><br>
+        ___# run migration cmds  <br>
+        > python manage.py makemigrations <br>
+        > python manage.py migrate <br>
+        <br><br>
+    </p>
+    <p>
+        ___# urls.py <br>-------------------<br>
+        urlpatterns = [ <br>
+        | .. path('', views.home), <br>
+        | .. path('home', views.home, name="home"), <br>
+        | .. path('home2', views.home1), <br>
+        | <br>
+        | .. #203 menu urls add. <br>
+        | .. path('menu/', views.menu, name="menu"), <br>
+        | .. path('menu_item/<int:pk>/', views.display_menu_item, name="menu_item"), <br>
+        | <br>
+        | .. #203 header links add <br>
+        | .. path('about/', views.about, name="about"), <br>
+        | <br>
+        | .. #203 book reservations add <br>
+        | .. path('book/', views.book, name="book"), <br>
+        | .. path('bookings/', views.bookings, name="bookings"), <br>
+        ] <br>
+
+
+        <br><br>
+    </p>
+    <p>
+        ____# views.py import list <br>-------------------------<br>
+        <sup><a href="sup" class="sup">
+            from .models import Booking, Menu <br>
+            from django import forms <br>
+            from django.shortcuts import render <br>
+            from django.core import serializers <br>
+            from datetime import datetime <br>
+            import json <br>
+            from .forms import BookingForm <br>
+
+        </a></sup>
+        <br>
+    </p>
+    <p>
+        ___# views.py edits1 add the book() method <br>------------------------<br>
+        <a href="def" class="def">
+        def</a> book(request): <br>
+        | .. form = BookingForm() <br>
+        | .. if request.method == 'POST': <br>
+        | ...... form = BookingForm(request.POST) <br>
+        | ...... if form.is_valid(): <br>
+        | .......... form.save() <br>
+        | .. context = {'form':form} <br>
+        | .. return render(request, 'book.html', context) <br>
+
+        <br><br>
+    </p>
+
+    <p>
+
+        ___# views.py edits2 add the bookings() method <br>------------------------<br>
+        <a href="def" class="def">
+        def</a> bookings(request): <br>
+        | .. date = request.GET.get('date', datetime.today().date()) <br>
+        | .. bookings = Booking.objects.all() <br>
+        | .. booking_json = serializers.serialize('json': bookings)  <br>
+        | .. return render(request, 'booking.html', {"bookings": booking_json})
+
+
+        <br><br>
+    </p>
 </body>
 </html>

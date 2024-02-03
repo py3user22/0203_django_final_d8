@@ -3,8 +3,8 @@ from .models import Menu
 from django.core import serializers
 from datetime import datetime
 import json
-#from .forms import BookingForm
-#from .models import Booking
+from .forms import BookingForm
+from .models import Booking
 
 
 # Create your views here.
