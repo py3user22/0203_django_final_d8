@@ -1,0 +1,117 @@
+<!doctype html>
+
+{% extends base0127.html %}
+
+
+<!--
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {padding: 5px; border: 2px green dashed;}
+    </style>
+    <title>0127_mysql_createuser_demo</title>
+</head>
+<body>  -->
+
+
+{% block content %}
+    <p>
+        ___#0127 create new user for db <br>-------------------------<br>
+        CREATE USER 'admindjango'@'localhost' IDENTIFIED BY 'password'; <br>
+        <br>
+        ex2 <br>------<br>
+        CREATE USER 'admindjango'@'localhost' IDENTIFIED BY 'P@ssword123!'; <br>
+        <br><br>
+
+        ex3 0127 step1: <br>-------------create a user named ' dbuser ' and give access to a database <br>
+        CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'dbpass'; <br>
+        <br><br>
+
+        step2: grant privileges on the db  <br>------------------------<br>
+        GRANT ALL ON dbtest.* TO 'dbuser'@'localhost'; <br>
+        <br><br>
+
+        step3: reload the privileges table to make changes immediate <br>------------------------<br>
+        FLUSH PRIVILEGES; <br>
+        <br><br>
+
+        __#127 drop a user error when remove a user w/o proper statement <br>------------------------<br>
+        DROP USER 'admindjango'@'localhost'; <br>
+        <br><br>
+    </p>
+    <p>
+        ____#127 common cmds <br>------------------ mysql cli <br>
+        __# create database<br>
+        CREATE DATABASE example127; <br>
+        <br>
+        __# change to a db <br>
+        USE example127; <br>
+        <br>
+        __# create a table <br>-----------------ex1 NOTE: VARCHAR limit is 255<br>
+        CREATE TABLE customer( <br>
+        | .. customer_id INT, <br>
+        | .. name VARCHAR(100), <br>
+        | .. address VARCHAR(255), <br>
+        | .. email VARCHAR(100), <br>
+        ); <br>
+        <br><br>
+        __# to show tables in db <br>--------------------<br>
+        SHOW TABLES; <br>
+        <br>
+    </p>
+    <p>
+        ____# select items from table <br>-----------------------<br>
+        SELECT * FROM customer; <br>
+        <br>
+        SELECT * FROM customer WHERE customer_id = 1; <br>
+        <br><br>
+        ____# select and order by specific column <br>---------------------------<br>
+        SELECT * <br>
+        FROM customer  <br>
+        ORDER BY customer_id ASC | DESC; <br>
+        <br><br>
+        ____# show structure of table <br>-------------------------<br>
+        SHOW COLUMNS FROM customer; <br>
+        <br><br>
+    </p>
+        <p>
+        __#0117 update data in table <br>
+        note: SET specifies the location of the records w/in the tables <br>
+        note: WHERE is used it identify records that fullfil specified condition <br>
+
+        ----------------------<br>
+        <a href="upda" class="upda">UPDATE</a> student_tbl <br>
+        <a href="set">SET</a> home_address = '234 park ave', contact_number = '234555555' <br>
+        <a href="wher">WHERE</a> ID = 3 <br>
+        <br><br>
+        __# ex2 update column <br>---------------------<br>
+        <a href="upda" class="upda">UPDATE</a> student_tbl <br>
+        <a href="set">SET</a> college_address = 'Harper building' <br>
+        <a href="wher">WHERE</a> department = 'engineering' <br>
+        <br><br>
+        __# delete data in table <br>-----------------<br>
+        <a href="dele">DELETE FROM</a> student_tbl <br>
+        <a href="wher">WHERE</a> last_name = 'Miller' <br>
+        <br><br>
+        __# ex2 delete data  <br>-----------------<br>
+        <a href="dele">DELETE FROM</a> student_tbl <br>
+        <a href="wher">WHERE</a> department = 'engineering' <br>
+        <br><br>
+        __# ex3 delete  all data from table  <br>-----------------<br>
+        <a href="dele">DELETE FROM</a> student_tbl <br>
+        <br><br>
+        __# ex4 delete from <br>---------------<br>
+        DELETE FROM customers WHERE customerID = 3; <br>
+        DELETE FROM customers WHERE customerID = 5; <br>
+
+    </p>
+
+{% endblock %}
+
+<!--
+</body>
+</html>  -->

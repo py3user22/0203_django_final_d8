@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {padding: 5px; border: 2px green dashed;}
+    </style>
+    <title>0203_django_mysql_connect_demo.html</title>
+</head>
+<body>
+    <h2>0203_django_mysql_connect_demo.html</h2>
+    <p>
+        ___# 0203 notes for mysql connection to models.py <br>----------------------------<br>
+        1- start with root user and then make the database <br>
+        mysql -u root -p  <br>
+        <br>
+        2- create database example203; <br>
+        <br>
+        3- use example203; <br>
+        <br>
+        4- show tables; <br>
+        <br>
+        5- describe table-name; <br>
+    <br><br>
+    <p>
+        ___#0127 create new user for db <br>-------------------------<br>
+        CREATE USER 'admindjango'@'localhost' IDENTIFIED BY 'password'; <br>
+        <br>
+        ex2 <br>------<br>
+        CREATE USER 'admindjango'@'localhost' IDENTIFIED BY 'P@ssword123!'; <br>
+        <br><br>
+        step2: grant privileges on the db  <br>------------------------<br>
+        GRANT ALL ON dbtest.* TO 'dbuser'@'localhost'; <br>
+        <br><br>
+
+        step3: reload the privileges table to make changes immediate <br>------------------------<br>
+        FLUSH PRIVILEGES; <br>
+        <br><br>
+
+    </p>
+
+    <p>
+        _____# 0131 notes: practice form on JS for html <br>-----------------------------<br>
+        DATABASES = { <br>
+        | .. 'default': { <br>
+        | ...... 'ENGINE': 'django.db.backends.mysql', <br>
+        | ...... 'NAME': 'reserves203', <br>
+        | ...... 'USER': 'admin204', <br>
+        | ...... 'HOST': '127.0.0.1', <br>
+        | ...... 'PASSWORD': '$$p@Lut44', <br>
+        | ...... 'PORT': '3306' <br>
+        | .. } <br>
+        } <br>
+        <br><br>
+        ____# 0201 mysql cmds notes <br>----------------------<br>
+        show tables; <br>
+        <br>
+        describe b_app201_solar; <br>
+        <br>
+    </p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>0129_JS_for_loop_demo</title>
+</head>
+<body>
+        <h2>0129_JS_for_loop_demo</h2>
+        <p>
+            ___# 0129_JS_for_loop_demo <br>----------------------
+            note: i ... aka iterable <br>
+            | .. i++  aka  i+1  can do either <br>
+            | .. loop body enclosed in { } <br>
+            | .. for () {} <br><br>
+            _____# 3 conditions to work:<br>
+            1- start count value must be assigned <br>
+            2- end-count value assigned <br>
+            3- incrementor to change value of i on each loop <br>
+            <br>
+            for (var i = 1; i <=3; i++) { <br>
+                console.log(i) <br>
+            } <br>
+            console.log('Go') <br>
+            <br><br>
+            ____# ex2 for loop <br>-------------------------<br>
+            for (var i = 10; i>0; i--) { <br>
+            | .. console.log(i) <br>
+            } <br>
+            console.log('Happy Happy Pappy')
+            <br><br>
+            ___#ex3 for loops <br>-------------------------------<br>
+            ______// Define an array of constant data <br>
+            const data = [10, 20, 30, 40, 50]; <br>
+            <br>
+            ______// Use a for loop to iterate over the array <br>
+            for (let i = 0; i < data.length; i++) { <br>
+            // Access each element of the array using the index i <br>
+            console.log(data[i]); <br>
+            } <br>
+            <br><br>
+            ______// Define an array of constant data <br>
+            const data = ["red", "green", "blue", "yellow", "purple"]; <br>
+            <br>
+            ______// Use a for...of loop to iterate over the array <br>
+            for (const element of data) { <br>
+            ______// Access each element of the array directly <br>
+            console.log(element); <br>
+            } <br>
+            <br><br>
+        </p>
+</body>
+</html>

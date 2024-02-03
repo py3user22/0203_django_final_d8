@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {border: 2px blue dashed; padding: 5px;}
+    </style>
+    <title>0201 json demo1</title>
+</head>
+<body>
+    <a href="#botp" id="topg">Link to bottom page</a>
+    <h2>0201 json demo1</h2>
+    <p>
+        _____#201 json string to json object demo <br>-------------------------parse method<br>
+        '{"greeting":"hello"}'
+        <br>
+        const jsonStr = '{"greeting":"hello"}' <br>
+        <br>
+        JSON.parse(jsonStr) <br>
+        | .. <i> {greeting: 'hello'}  </i> <br>
+        <br>
+        const aPlainObj = JSON.parse(jsonStr) <br>
+        | .. undefined <br>
+        <br>
+        aPlainObj.greeting = 'hola mundo' <br>
+        <br>
+        aPlainObj <br>
+        | .. <i>{greeting: 'hola mundo'}</i> <br>
+        <br><br>
+    </p>
+    <p>
+        _____#201 json object to json string <br>------------------stringify method <br>
+        const data = { <br>
+        | .. firstName = "Jesus", <br>
+        | .. lastName = "Gomez", <br>
+        | .. greeting: "Mucho Gusto", <br>
+        } <br>
+        <br>
+        JSON.stringify(data) <br>
+        | .. '{"firstName":"Jesus", "lastName":"Gomez", "greeting":"Mucho Gusto"}' <br>
+        <br><br>
+    </p>
+    <p>
+        ____# destructuring > copy for original to another <br>-----------------------<br>
+        ex1<br>---------<br>
+        let {PI} = Math; <br>
+        <br>
+        PI; <br>3.141592653589793<br>
+        <br>
+        ex2 case sensitive, if not in class will return undefined <br>---------<br>
+        pi; <br>undefined <br>
+        <br>
+        ex3 boolean to check if values match <br>---------------------<br>
+        PI === Math.PI;<br>| .. true <br>
+        <br>
+        ex4 change the orginal value <br>--------------------<br>
+        PI = 1; <br>
+        <br>
+        PI === Math.PI;<br>| .. false <br>
+        <br><br>
+    </p>
+    <a href="#botp" id="topg">Link to bottom page</a>
+    <p>
+        ___#201 for of loops and objects <br>-------------------<br>
+        <br>
+        ex1 car is not a iterable because it is a object {}, needs new code edits <br>----------<br>
+        const car = { <br>
+        | .. speed: 100, <br>
+        | .. color: "blue" <br>
+        } <br>
+        <br>
+        ex2 arrays [] are iterable <br>-------------------------<br>
+        const colors = ['red', 'orange', 'yellow'] <br>
+        for (var color of colors) { <br>
+        | .. console.log(color); <br>
+        } <br>
+        <br>
+        output <br>---------<br>
+        red <br>
+        orange <br>
+        yellow <br>
+        <br><br>
+        ex3 Object.keys() method using built-in methods to get object {} keys <br>-------------------------<br>
+        const car2 = { <br>
+        | .. speed: 100, <br>
+        | .. color: "blue" <br>
+        } <br>
+        console.log(Object.keys(car2)); <br>
+        <br>
+        output <br>----------<br>
+        ['speed', 'color'] <br>
+        <br><br>
+        ex4 Object.values() method to get the object values <br>----------------------<br>
+        const car3 = { <br>
+        | .. speed: 150, <br>
+        | .. color: "yellow" <br>
+        } <br>
+        console.log(Object.values(car3)); <br>
+        <br>
+        output <br>----------<br>
+        ['150', 'yellow'] <br>
+        <br><br>
+        ex5 Object.entries() method to get both keys & values from object
+        const car4 = { <br>
+        | .. speed: 400, <br>
+        | .. color: 'magenta' <br>
+        } <br>
+        console.log(Object.entries(car4)); <br>
+        <br>
+        output <br>----------<br>
+        [['speed', 400], ['color', 'magenta']] <br>
+        <br><br>
+    </p>
+    <p>
+        ____#0202 return values from functions <br>---------------------<br>
+        function consoLog(val) { <br>
+        | .. console.log(val) <br>
+        | .. return val <br>
+        } <br>
+        <br>
+        consoLog('Hello') <br>output:<br>
+        Hello<br>'Hello' <br>
+        <br><br>
+        ex2 double function example <br>-------------------<br>
+        function doubleIt(num) { <br>
+        | .. return num *2 <br>
+        } <br>
+        <br>
+        doubleIt(10).toString() <br>
+        <br>
+        output: '20' <br>
+        <br><br>
+        objectMaker( doubleIt(100) ); <br>
+        <br>
+        output: {prop: 200} <br>
+        <br><br>
+        ex3 object maker example <br>------------------------<br>
+        function objectMaker(val) { <br>
+        | .. return { <br>
+        | ...... prop: val <br>
+        | .. } <br>
+        } <br>
+        <br>
+        objectMaker(20); <br>
+        <br>output: <br>
+        {prop:20} <br>
+        <br><br>
+    </p>
+    <a href="#botp" id="topg">Link to bottom page</a>
+    <p>
+        ___# function calling & recursion <br>--------------------------<br>
+        function example() { <br>
+        | .. console.log('line one'); <br>
+        | .. console.log('line two'); <br>
+        | .. console.log('line three'); <br>
+        } <br>
+        <br>
+        __ex2 using counter to limit calls loop does <br>----------------------<br>
+        let counter = 3; <br>
+        function example2() { <br>
+        | .. console.log(counter); <br>
+        | .. counter = counter -1; <br>
+        | .. if (counter === 0) return; <br>
+        | .. example2(); <br>
+        } <br>
+        <br>
+        output: <br>
+        3<br>2<br>1<br>
+        <br><br>
+        __#202 ex use of functions & variables <br>-----------------------<br>
+        function getTotal(a,b) { <br>
+        | .. return a + b <br>
+        } <br>
+        <br>
+        var num1 = 2; <br>
+        var num2 = 3; <br>
+        <br>
+        var total = getTotal(num1, num2); <br>
+        <br><br>
+        function getDistance(mph, h) { <br>
+        | .. return mph * h <br>
+        } <br>
+        <br>
+        var mph = 60; <br>
+        var h = 2; <br>
+        var distance = getDistance(mph, h); <br>
+        <br>
+        console.log(distance); <br>
+        <br><br>
+
+
+
+    </p>
+
+        <br><br>
+
+        <a href="#topg" id="botp">Link to top page</a>
+</body>
+</html>
