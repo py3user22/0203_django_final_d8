@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section xmlns="http://www.w3.org/1999/html">
+  <article>
+    <h1>Make a reservation</h1>
+    <!--Begin row-->
+    <div class="row">
+      <!--Begin col-->
+      <div class="column">
+
+          <form method="POST" id="form">
+            {% csrf_token %}
+            <p>
+              <label for="first_name">Name:</label>
+              <input type="text" placeholder="Your Name" maxlength="200" required="" id="first_name">
+            </p>
+
+            <!-- _______Step 9: Part 1 copy above p -->
+            <p>
+              <label for="reservation_date">Reservation date:</label>
+              <input type="date" placeholder="Pick a date" id="reservation_date">
+              <!--
+              document.getElementById('reservation_date')
+              addEventListener('change': { getBookings() })
+              -->
+            </p>
+
+            <p>
+                <label for="id_field">Reservation slot:</label>
+                <select name="field" id="id_field">
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                    <option value="9:00 PM">9:00 PM</option>
+                </select>
+            </p>
+
+
+            <!--    #0131 save file
+            <p>
+              <label for="reservation_slot">Reservation slot:</label>
+              <input type="time" placeholder="Times available:" id="reservation_slot">
+            </p> -->  <br>
+
+            <button type="button" id="button">Reserve</button>
+
+          </form>
+      </div>
+      <!--End col-->
+
+      <!--Begin col-->
+      <div class="column">
+        <h2>Bookings For <span id="today"> </span></h2>
+
+        <div id="bookings">
+        </div>
+      </div>
+      <!--End col-->
+    </div>
+    <!--End row-->
+  </article>
+</section>
+<script>
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() +1;
+            var day = date.getDate();
+            document.getElementById("date").innerHTML = year + "/" + month + "/" + day;
+
+
+  const date = new Date()
+  document.getElementById('reservation_date').value = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate().toString().padStart(2, "0")}`
+
+  console.log(document.getElementById('reservation_date').value)
+  getBookings()
+
+
+  /*  Step 10: Part two */
+
+  function getBookings() {
+    let reserved_slots = []
+    const date = document.getElementById('reservation_date').value
+    document.getElementById('today').innerHTML = date
+    
+    fetch("{% url 'bookings' %}" + '?date=' + date)
+      .then(r => r.json())
+      .then(data => {
+        reserved_slots = []
+        bookings = ''
+        
+        /* Step 11: Part three */
+
+
+        /* Step 12: Part four  */
+
+
+
+        
+        document.getElementById('reservation_slot').innerHTML = slot_options
+        if(bookings==''){
+          bookings = "No bookings"
+        }
+        document.getElementById('bookings').innerHTML = bookings
+      })
+  }
+
+  function formatTime(time) {
+    const ampm = time < 12 ? 'AM' : 'PM'
+    const t = time < 12 ? time : time > 12 ? time - 12 : time
+    const label = `${t} ${ampm}`
+    return label
+  }
+
+
+  document.getElementById('button').addEventListener('click', function (e) {
+    const formdata = {
+      first_name: document.getElementById('first_name').value,
+      reservation_date: document.getElementById('reservation_date').value,
+      reservation_slot: document.getElementById('reservation_slot').value,
+    }
+
+    fetch("{% url 'bookings' %}", { method: 'post', body: JSON.stringify(formdata) })
+      .then(r => r.text())
+      .then(data => {
+        getBookings()
+      })
+  })
+</script>
+{% endblock %}
+

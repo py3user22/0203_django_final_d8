@@ -1,0 +1,54 @@
+{% load static %}
+<header>
+  <img src="{% static 'img/channels4_profile pic.jpg' %}" />
+  <style>
+    .list {
+        border: 1px red solid;
+        padding: 10px auto 10px 10px;
+        border-radius: 0 75px 75px 75px;
+        margin: 1px 20% 5px 20%;  /* top, right, bottom, left  */
+        background-color: tan;
+        outline: 5px dashed lightblue;
+
+    }
+    a { color: red; } a:hover { color: green; }
+    h2 {
+        text-align: center;
+        border: 1px green solid; border-radius: 75px;
+        margin: 0 40% 0 40%;
+        padding: 5px;
+        outline: 15px dashed yellow;
+        height: 100px; width: 100px;
+
+    }
+    .colo { color: green; }
+
+    .figc { border: 1px solid red;
+            border-radius: 70px 70px 0 0;
+            margin: 0 65% 0 20%;
+            padding: 5px 0 0 10px;
+            text-align: left;
+            border-top: 2px;
+            outline: 5px dashed lightblue;
+
+    }
+  </style>
+
+</header>
+
+  <h2>
+    <a href="colo" class="colo">
+      Jesus Gomez </a> <br>
+  </h2>
+
+  <figure>
+    <figcaption class="figc"> <i><b>Contact details</b></i>:   </figcaption> <br>
+    <ul class="list">
+      <li><a href="{% url 'cell' %}">|(cell) 832-973-1179 </a></li>
+      <li><a href="{% url 'gmail' %}">|(email)-> jesusg31.2013@gmail.com</a></li>
+      <li><a href="{% url 'linkedin' %}">|__\_\-> linkedin.com/in/jesus-gomez-806332119</a></li>
+      <li><a href="{% url 'github' %}">|___\--> py3user22@github.com</a></li>
+    </ul>
+  </figure>
+
+  <!-- comments ex.-->
