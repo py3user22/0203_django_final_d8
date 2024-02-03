@@ -14,5 +14,10 @@ urlpatterns = [
     #203 header links add
     path('about/', views.about, name="about"),
 
+    #203 book reservations add
+    path('book/', views.book, name="book"),
+    #path('bookings/', views.bookings, name="bookings"),
+
+
 
 ]

@@ -11,3 +11,12 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
 
+
+#0203 demo for booking
+class Booking(models.Model):
+    first_name = models.CharField(max_length=200)
+    reservation_date = models.DateField()
+    reservation_slot = models.SmallIntegerField(default=10)
+
+    def __str__(self):
+        return self.first_name

@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from .models import Menu
+from django.core import serializers
+from datetime import datetime
+import json
+#from .forms import BookingForm
+#from .models import Booking
 
 
 # Create your views here.
@@ -24,3 +29,15 @@ def display_menu_item(request, pk=None):
     else:
         menu_item = ""
     return render(request, 'menu_item.html', {"menu_item": menu_item})
+
+def book(request):
+    form = BookingForm()
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request, 'book.html', context)
+
+
+# def bookings(request):
