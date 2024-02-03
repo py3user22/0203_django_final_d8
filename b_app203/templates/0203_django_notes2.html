@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         p {padding: 5px; border: 2px green dashed;}
-        .sup {color: purple;} .def {color: orange;}
+        .sup {color: purple;} .def {color: orange;} a:hover {color: green;}
     </style>
     <title>0203_django_mysql_connect_demo.html</title>
 </head>
 <body>
     <h2>0203_django_notes2</h2>
+    <a href="#botp" name="topg">Link to page bottom</a>
     <p>
         ___# setting up the lab3 booking html demo <br>----------------------forms.py <br>
         <sup><a href="sup" class="sup">
@@ -29,6 +30,7 @@
         > python manage.py migrate <br>
         <br><br>
     </p>
+    <a href="#botp" name="topg">Link to page bottom</a>
     <p>
         ___# urls.py <br>-------------------<br>
         urlpatterns = [ <br>
@@ -38,7 +40,7 @@
         | <br>
         | .. #203 menu urls add. <br>
         | .. path('menu/', views.menu, name="menu"), <br>
-        | .. path('menu_item/<int:pk>/', views.display_menu_item, name="menu_item"), <br>
+        | .. path('menu_item/< int:pk>/', views.display_menu_item, name="menu_item"), <br>
         | <br>
         | .. #203 header links add <br>
         | .. path('about/', views.about, name="about"), <br>
@@ -51,6 +53,7 @@
 
         <br><br>
     </p>
+    <a href="#botp" name="topg">Link to page bottom</a>
     <p>
         ____# views.py import list <br>-------------------------<br>
         <sup><a href="sup" class="sup">
@@ -89,9 +92,36 @@
         | .. bookings = Booking.objects.all() <br>
         | .. booking_json = serializers.serialize('json': bookings)  <br>
         | .. return render(request, 'booking.html', {"bookings": booking_json})
+        <br><br>
+    </p>
+    <p>
+        ___# book.html add code to script tags <br>-----------------------------<br>
+        < script> <br>
+        | .. console.log("Hello") <br>
+        | .. document.getElementById("id_<a href="rese" class="rese">reservation_date</a>") <br>
+        | <br>
+        | .. _____#203 suffix code by adding a filter <br>| .. ------------------------------<br>
+        | .. Booking.objects.filter(<a href="rese" class="rese">reservation_date</a>__type="date")  <br>
+        | ..   <br>
+        < /script> <br>
 
 
         <br><br>
     </p>
+    <p>
+        ____# models.py <br>----------------------------#0203 demo for booking <br><br>
+        <a href="clas" class="clas">class</a> Booking(models.Model): <br>
+        | .. first_name = models.CharField(max_length=200) <br>
+
+        | .. <a href="rese" class="rese">reservation_date = models.DateField() </a> <br>
+        | .. reservation_slot = models.SmallIntegerField(default=10) <br>
+        <br>
+        | .. def __str__(self): <br>
+        | ...... return self.first_name <br>
+        <br><br>
+    </p>
+
+        <br><br>
+        <a href="#topg" name="botp">Link to top page</a>
 </body>
 </html>
