@@ -90,7 +90,7 @@
         def</a> bookings(request): <br>
         | .. date = request.GET.get('date', datetime.today().date()) <br>
         | .. bookings = Booking.objects.all() <br>
-        | .. booking_json = serializers.serialize('json': bookings)  <br>
+        | .. booking_json = serializers.serialize('json', bookings)  <br>
         | .. return render(request, 'booking.html', {"bookings": booking_json})
         <br><br>
     </p>
@@ -120,6 +120,31 @@
         | ...... return self.first_name <br>
         <br><br>
     </p>
+    <p>
+        ___# bookings.html > create new constant ' bookings ' <br>---------------------<br>
+        const bookings = JSON.parse('{{ bookings|safe }}'); <br>
+        console.log(bookings) <br>
+        <br>
+        const pretty_json = JSON.stringify(bookings, null, 2)
+        <br><br>
+    </p>
+    <p>
+        ___# index.html > add code <br>-----------------<br>
+        < a href="{ % url 'book' %}"> Book your table now < /a> <br>
+        <br><br>
+        ___# _header.html > add list items for book & bookings >  code edits <br>-----------------<br>
+        < li>< a href="{ % url 'book' %}">Book< /a>< /li> <br>
+        <br>
+        < li>< a href="{ % url 'bookings' %}">Reservations< /a>< /li> <br>
+        <br>
+
+
+        <br><br>
+    </p>
+
+
+
+
 
         <br><br>
         <a href="#topg" name="botp">Link to top page</a>
