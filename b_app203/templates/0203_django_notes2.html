@@ -141,6 +141,35 @@
 
         <br><br>
     </p>
+    <p>
+
+        ___#0204 views.py edits3 add the bookings() method <br>------------------------<br>
+        <a href="def" class="def">
+        def</a> bookings(request): <br>
+        | .. if request.method == 'POST': <br>
+        | ...... data = json.load(request) <br>
+        | ...... exist = Booking.objects.filter(reservation_date=data['reservation_date']).filter( <br>
+        | .......... reservation_slot = data['reservation_slot']).exists() <br>
+        | <br>
+        | ...... if exist == False: <br>
+        | .......... booking = Booking( <br>
+        | .............. first_name=data['first_name'], <br>
+        | .............. reservation_date=data['reservation_date'], <br>
+        | .............. reservation_slot=data['reservation_slot'], <br>
+        | .......... ) <br>
+        | .......... booking.save() <br>
+        | <br>
+        | ...... else: <br>
+        | .......... return HttpResponse("{'error':1}", content_type='application/json') <br>
+        | <br>
+
+
+        | .. date = request.GET.get('date', datetime.today().date()) <br>
+        | .. bookings = Booking.objects.all() <br>
+        | .. booking_json = serializers.serialize('json', bookings)  <br>
+        | .. return HttpResponse(booking_json, content_type='application/json') <br>
+        <br><br>
+    </p>
 
 
 
