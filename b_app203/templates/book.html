@@ -41,8 +41,16 @@
                 </select>
             </p>
 
-            <button type="button" id="button">Reserve</button>
-
+            <button id="my-button">Reserve</button>
+            <script>
+                // Select the button element by its id
+                var myButton = document.getElementById("my-button");
+                // Add a click event listener to the button
+                myButton.addEventListener("click", function() {
+                // This function will run when the button is clicked
+                alert("You clicked the button!");
+                });
+            </script>
           </form>
       </div>
       <!--End col-->

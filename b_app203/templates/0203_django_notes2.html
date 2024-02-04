@@ -64,6 +64,8 @@
             from datetime import datetime <br>
             import json <br>
             from .forms import BookingForm <br>
+            from django.views.decorators.csrf import csrf_exempt <br>
+            from django.http import HttpResponse <br>
 
         </a></sup>
         <br>
@@ -169,6 +171,30 @@
         | .. booking_json = serializers.serialize('json', bookings)  <br>
         | .. return HttpResponse(booking_json, content_type='application/json') <br>
         <br><br>
+    </p>
+    <p>
+        ____#204 ex. button with addEventListener() demo  <br>---------------------------<br>
+            < button id="my-button">Reserve< /button> <br>
+            < script> <br>
+            | ...... // Select the button element by its id <br>
+            | .. var myButton = document.getElementById("my-button"); <br>
+            | ...... // Add a click event listener to the button <br>
+            | .. myButton.addEventListener("click", function() { <br>
+            | ...... // This function will run when the button is clicked <br>
+            | .. alert("You clicked the button!"); <br>
+            | .. }); <br>
+            < /script> <br>
+            <br><br>
+        _____#ex2 button w/ addEventListener() demo2 <br>--------------------------------<br>
+        < button id="button2">Reserve< /button> <br>
+        < script> <br>
+        | .. var Button2 = document.getElementById("reservation_date"); <br>
+        | .. Button2.addEventListener("change", function() { <br>
+        | ...... {getBookings()}; <br>
+        }); <br>
+        < /script>
+
+
     </p>
 
 

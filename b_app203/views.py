@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from .models import Menu, Booking
 from django.core import serializers
 from datetime import datetime
 import json
 from .forms import BookingForm
 from django.views.decorators.csrf import csrf_exempt
-
+from django.http import HttpResponse
 
 # Create your views here.
 def home1(request):
