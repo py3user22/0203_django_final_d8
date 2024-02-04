@@ -176,11 +176,11 @@
         ____#204 ex. button with addEventListener() demo  <br>---------------------------<br>
             < button id="my-button">Reserve< /button> <br>
             < script> <br>
-            | ...... // Select the button element by its id <br>
+        | ...... // <a href="red" class="red"> Select the button element by its id </a> <br>
             | .. var myButton = document.getElementById("my-button"); <br>
-            | ...... // Add a click event listener to the button <br>
-            | .. myButton.addEventListener("click", function() { <br>
-            | ...... // This function will run when the button is clicked <br>
+            | ...... // <a href="red" class="red"> Add a click event listener to the button </a> <br>
+            | .. myButton.addEventListener("click", function() {   <br>
+        | ...... // <a href="red" class="red"> This function will run when the button is clicked </a> <br>
             | .. alert("You clicked the button!"); <br>
             | .. }); <br>
             < /script> <br>
@@ -189,14 +189,28 @@
         < button id="button2">Reserve< /button> <br>
         < script> <br>
         | .. var Button2 = document.getElementById("reservation_date"); <br>
+        | <br>
         | .. Button2.addEventListener("change", function() { <br>
         | ...... {getBookings()}; <br>
-        }); <br>
+        | .. }); <br>
         < /script>
 
 
     </p>
+    <p>
+        ____#204 book.html script tag good output for  <br>---------------------------<br>
+       < script> <br>
 
+        ________// make variable for ' reservations_date ' <br>
+        var ResDate = document.getElementById("reservation_date"); <br>
+        <br>
+        ________// put addEventListener() function to var <br>
+        ResDate.addEventListener("change", function() { <br>
+        | .. { getBookings() }; <br>
+        }); <br>
+        < /script>
+
+    </p>
 
 
 

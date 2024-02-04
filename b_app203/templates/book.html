@@ -43,17 +43,30 @@
 
             <button id="my-button">Reserve</button>
             <script>
-                // Select the button element by its id
+                     // Select the button element by its id
                 var myButton = document.getElementById("my-button");
-                // Add a click event listener to the button
+                     // Add a click event listener to the button
                 myButton.addEventListener("click", function() {
-                // This function will run when the button is clicked
-                alert("You clicked the button!");
+                     // This function will run when the button is clicked
+                    alert("Reservation submitted!");
                 });
+
+                     // make variable for ' reservations_date '
+                var ResDate = document.getElementById("reservation_date");
+
+                     // put addEventListener() function to var
+                ResDate.addEventListener("change", function() {
+                    { getBookings() };
+                });
+
+
+
+
             </script>
           </form>
       </div>
       <!--End col-->
+
 
       <!--Begin col-->
       <div class="column">

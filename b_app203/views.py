@@ -9,8 +9,16 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 
 # Create your views here.
+def home(request):
+    return render(request, 'index.html',{})
+
+
 def home1(request):
     return render(request, '0203_django_notes2.html', {})
+
+def about(request):
+    return render(request, 'about.html', {})
+
 
 #0203 menu method add.
 def menu(request):
@@ -18,11 +26,6 @@ def menu(request):
     main_data = {"menu": menu_data}
     return render(request, 'menu.html', {"menu": main_data})
 
-def about(request):
-    return render(request, 'about.html', {})
-
-def home(request):
-    return render(request, 'index.html',{})
 
 def display_menu_item(request, pk=None):
     if pk:
@@ -31,6 +34,8 @@ def display_menu_item(request, pk=None):
         menu_item = ""
     return render(request, 'menu_item.html', {"menu_item": menu_item})
 
+
+# methods for book & bookings
 def book(request):
     form = BookingForm()
     if request.method == 'POST':
@@ -40,13 +45,6 @@ def book(request):
     context = {'form':form}
     return render(request, 'book.html', context)
 
-
-#203 add bookings method ex1.
-#def bookings(request):
-#    date = request.GET.get('date', datetime.today().date())
-#    bookings = Booking.objects.all()
-#    booking_json = serializers.serialize('json', bookings)
-#    return render(request, 'bookings.html', {"bookings": booking_json})
 
 #204 add bookings() ex.2
 @csrf_exempt
@@ -71,3 +69,11 @@ def bookings(request):
     bookings = Booking.objects.all().filter(reservation_date=date)
     booking_json = serializers.serialize('json', bookings)
     return HttpResponse(booking_json, content_type='application/json')
+
+
+#203 add bookings method ex1. original before edits2
+#def bookings(request):
+#    date = request.GET.get('date', datetime.today().date())
+#    bookings = Booking.objects.all()
+#    booking_json = serializers.serialize('json', bookings)
+#    return render(request, 'bookings.html', {"bookings": booking_json})
